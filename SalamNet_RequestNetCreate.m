@@ -98,18 +98,18 @@ end
 %用于绘制网络拓扑的函数
 function IRQ=Net_plot(BorderLength,NodeAmount,Sxy,EdgeCost,EdgeBandWide,VertexCost,PlotIf)
 %画节点
-figure(2);
+%figure(2);
 if PlotIf == 1
-    plot(Sxy(2,:),Sxy(3,:),'ko','MarkerEdgeColor','k','MarkerFaceColor','k','MarkerSize',3);
+    %plot(Sxy(2,:),Sxy(3,:),'ko','MarkerEdgeColor','k','MarkerFaceColor','k','MarkerSize',3);
     %设置图形显示范围
-    xlim([0,BorderLength]);
-    ylim([0,BorderLength]);
-    hold on;
+    %xlim([0,BorderLength]);
+    %ylim([0,BorderLength]);
+    %hold on;
     %节点标序号
     for i = 1:NodeAmount
         Str = int2str(i);
-        text(Sxy(2,i)+BorderLength/100,Sxy(3,i)+BorderLength/100,Str,'FontName','Times New Roman','FontSize',8);
-        hold on;
+        %text(Sxy(2,i)+BorderLength/100,Sxy(3,i)+BorderLength/100,Str,'FontName','Times New Roman','FontSize',8);
+        %hold on;
     end
 end
 %画边
@@ -118,8 +118,8 @@ if PlotIf == 1
     for i = 1:(NodeAmount-1)
         for j = (i+1):NodeAmount
             if isinf(EdgeCost(i,j)) == 0
-                plot([Sxy(2,i),Sxy(2,j)],[Sxy(3,i),Sxy(3,j)],'k');
-                hold on;
+                %plot([Sxy(2,i),Sxy(2,j)],[Sxy(3,i),Sxy(3,j)],'k');
+                %hold on;
             end
         end
     end
@@ -135,8 +135,8 @@ if PlotIf == 1
                     b=b+EdgeBandWide(i,j);
                 end
                 if isinf(EdgeCost(i,j)) == 0
-                    plot([Sxy(2,i),Sxy(2,j)],[Sxy(3,i),Sxy(3,j)],'k');
-                    hold on;
+                    %plot([Sxy(2,i),Sxy(2,j)],[Sxy(3,i),Sxy(3,j)],'k');
+                    %hold on;
                 end
             end
         end
@@ -152,7 +152,7 @@ end
 IRQ=sortrows(IR,-2);
 xlswrite('requestNR.xlsx',IRQ);
 if PlotIf == 1
-    xlabel('x (km)','FontName','Times New Roman','FontSize',12);
-    ylabel('y (km)','FontName','Times New Roman','FontSize',12);
+    %xlabel('x (km)','FontName','Times New Roman','FontSize',12);
+    %ylabel('y (km)','FontName','Times New Roman','FontSize',12);
 end
 end
